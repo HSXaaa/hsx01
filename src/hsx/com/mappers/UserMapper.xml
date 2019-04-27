@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hsx.com.dao.UserDao">
+
+	<resultMap type="User" id="UserResult">
+		<result property="id" column="id"/>
+		<result property="userName" column="userName"/>
+		<result property="password" column="password"/>
+	</resultMap>
+
+	<select id="login" resultMap="UserResult">
+		select * from info where userName=#{userName} and password=#{password}
+	</select>
+
+    <insert id="registerByUsernameAndPassword">
+        insert into info (userName,password) values (#{userName},#{password})  
+    </insert>
+ 
+ 	<select id="unionUser" resultMap="UserResult">
+		select * from info 
+	</select>   
+    
+</mapper> 

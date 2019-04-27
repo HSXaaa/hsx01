@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hsx.com.dao.PrincipalDao">
+ 	<resultMap type="Principal" id="PrincipalResult">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="time" column="time"/>
+		<result property="sex" column="sex"/>
+		<result property="number" column="number"/>
+		<result property="college" column="college"/>
+		<result property="grade" column="grade"/>
+		<result property="major" column="major"/>
+		<result property="classes" column="classes"/>
+		<result property="nation" column="nation"/>	
+		<result property="natives" column="natives"/>
+		<result property="politics" column="politics"/>
+		<result property="phone" column="phone"/>
+		<result property="performance" column="performance"/>
+		<result property="work" column="work"/>
+		<result property="rewandpunish" column="rewandpunish"/>	
+		<result property="infoId" column="infoId"/>
+	</resultMap>
+ <insert id="principalsetup">
+   insert into principal (name,sex,number,college,grade,major,classes,nation,natives,politics,phone,performance,work,rewandpunish,infoId) values 
+   (#{name},#{sex},#{number},#{college},#{grade},#{major},#{classes},#{nation},#{natives},#{politics},#{phone},#{performance},#{work},#{rewandpunish},#{infoId})
+ </insert> 
+ 
+<select id="selectPrincipal" resultMap="PrincipalResult">
+    select * from principal where infoId = #{infoId}
+ </select>
+ 
+ <select id="unionPrincipal" resultMap="PrincipalResult">
+    select * from principal
+ </select>  
+</mapper> 

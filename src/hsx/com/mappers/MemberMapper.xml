@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hsx.com.dao.MemberDao">
+ 	<resultMap type="Member" id="MemberResult">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="number" column="number"/>
+		<result property="pay" column="pay"/>
+		<result property="infoId" column="infoId"/>
+	</resultMap>
+	
+ <insert id="membersetup">
+   insert into member (name,number,pay,infoId) values 
+   (#{name},#{number},#{pay},#{infoId})
+ </insert>
+ 
+ <select id="selectMember" resultMap="MemberResult">
+    select * from member where infoId = #{infoId}
+ </select> 
+ 
+ <select id="unionMember" resultMap="MemberResult">
+    select * from member
+ </select> 
+</mapper> 

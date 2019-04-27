@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hsx.com.dao.BasicDao">
+ 	<resultMap type="Basic" id="BasicResult">
+ 	    <id property="id" column="id"/>
+ 	    <result property="sort" column="sort"/>
+		<result property="setuptime" column="setuptime"/>
+		<result property="purpose" column="purpose"/>
+		<result property="constitutior" column="constitutior"/>
+		<result property="organization" column="organization"/>
+		<result property="activity" column="activity"/>
+		<result property="rewandpunish" column="rewandpunish"/>
+		<result property="infoId" column="infoId"/>
+	</resultMap>
+	
+ <insert id="basicsetup">
+   insert into basic (sort,setuptime,purpose,constitutior,organization,activity,rewandpunish,infoId) values 
+   (#{sort},#{setuptime},#{purpose},#{constitutior},#{organization},#{activity},#{rewandpunish},#{infoId})
+ </insert>  
+ 
+ <select id="selectBasic" resultMap="BasicResult">
+    select * from basic where infoId = #{infoId}
+ </select> 
+ 
+  <select id="unionBasic" resultMap="BasicResult">
+    select * from basic
+ </select>
+</mapper> 
